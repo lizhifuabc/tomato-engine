@@ -1,0 +1,41 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+.DS_Store
+
+
+### java ###
+target/
+!**/src/main/**
+!**/src/test/**
+
+### maven ###
+!.mvn/wrapper/maven-wrapper.jar
+
+### 前端 ###
+**/dist
+**/node_modules
+**/.vscode
+
+### STS ###
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### VS Code ###
+.vscode/
+
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
