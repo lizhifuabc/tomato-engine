@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Bean;
 public class JacksonAutoConfiguration {
     @PostConstruct
     public void init() {
-        log.info("jackson自动配置");
+        log.info("jackson 自动配置");
     }
 
     @Bean
