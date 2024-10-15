@@ -5,6 +5,10 @@
 
 [tomato-engine-idempotent](tomato-engine-idempotent)
 
+- 幂等
+- 页面做遮罩，数据库层面的唯一索引，先查询再添加
+- 此注解只用于幂等，不用于锁
+
 [tomato-engine-login](tomato-engine-login)
 
 - 唯一性判断：手机号、邮箱
@@ -57,3 +61,6 @@
 
 ## 开源项目（工具）推荐
 
+本项目参考代码如下：
+
+> https://github.com/pig-mesh/idempotent-spring-boot-starter/tree/features/springboot3

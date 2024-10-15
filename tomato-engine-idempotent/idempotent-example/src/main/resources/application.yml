@@ -1,0 +1,7 @@
+spring:
+  data:
+    redis:
+      host: 192.168.18.64
+      port: 6379
+
+#  docker run --restart=always -p 6379:6379 --name redis-docker -d redis

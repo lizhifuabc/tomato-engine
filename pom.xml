@@ -48,6 +48,9 @@
 
         <!-- easy-excel https://easyexcel.opensource.alibaba.com/ -->
         <easy-excel.version>4.0.3</easy-excel.version>
+
+        <!-- redisson https://redisson.org/docs/integration-with-spring/ -->
+        <redisson.version>3.37.0</redisson.version>
     </properties>
 
     <dependencyManagement>
