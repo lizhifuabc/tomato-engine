@@ -1,6 +1,17 @@
 # tomato-engine
 记录自己的日常工作
 
+## 工作日志
+
+[tomato-engine-idempotent](tomato-engine-idempotent)
+
+[tomato-engine-login](tomato-engine-login)
+
+- 唯一性判断：手机号、邮箱
+- 登录敏感词检测：分词、DFA算法
+- 短信轰炸：滑块验证-->签名-->请求（数字签名）
+- 限流
+
 [tomato-engine-jackson](tomato-engine-jackson)
 
 - jackson
@@ -43,3 +54,6 @@
   - 角色和职位是多对多的关系
 
 ![rbac](./image/rbac.jpeg)
+
+## 开源项目（工具）推荐
+

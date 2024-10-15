@@ -26,6 +26,8 @@
         <module>tomato-engine-easy-excel</module>
         <module>tomato-engine-easy-excel</module>
         <module>tomato-engine-rbac</module>
+        <module>tomato-engine-login</module>
+        <module>tomato-engine-idempotent</module>
     </modules>
     <scm>
         <connection/>
