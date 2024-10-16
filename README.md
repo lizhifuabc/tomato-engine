@@ -11,10 +11,17 @@
 
 [tomato-engine-login](tomato-engine-login)
 
+时间与成本，收益与支出的博弈。
+
 - 唯一性判断：手机号、邮箱
 - 登录敏感词检测：分词、DFA算法
-- 短信轰炸：滑块验证-->签名-->请求（数字签名）
-- 限流
+- 短信轰炸：滑块验证、2FA -->签名-->请求（数字签名）
+- 限流：限流只能起到一定的约束作用，不能影响到真正的用户使用
+- https双向认证
+- code采用加密（如AES）：客户端也可以被破解
+- 谷歌验证码v3+v2
+- 接口域名校验：适用于大部分场景的web方案，开放平台之类的就不适用
+- 短信服务预付费模式
 
 [tomato-engine-jackson](tomato-engine-jackson)
 
@@ -59,7 +66,25 @@
 
 ![rbac](./image/rbac.jpeg)
 
-## 开源项目（工具）推荐
+## 生产力工具
+
+沉浸式翻译（内存占用较高）：https://immersivetranslate.com/zh-Hans/ 
+
+Redis 客户端 ：https://redis.tinycraft.cc/
+
+git 客户端：https://git-fork.com/
+
+Arc 浏览器：https://arc.net/
+
+Mac菜单栏 iBar：https://www.better365.cn/ibar.html
+
+Mac 搜索 Raycast：https://www.raycast.com/
+
+远程桌面：https://www.todesk.com/
+
+
+
+## 开源项目推荐
 
 本项目参考代码如下：
 
