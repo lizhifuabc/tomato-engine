@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.tomato</groupId>
+        <artifactId>tomato-engine</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>tomato-engine-starter</artifactId>
+
+    <dependencies>
+        <!-- 提供自动配置功能，简化Spring Boot应用的配置。 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <!-- 用于生成自动配置的元数据，帮助IDE提供更好的代码提示和建议。 -->
+        <!-- 该依赖不会传递给其他依赖该项目的项目 -->
+        <!-- 主要用于在开发时提供额外的功能（如代码提示），但在运行时不是必需的。 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 用于处理@ConfigurationProperties注解，生成配置属性的元数据，帮助IDE提供更好的代码提示和验证 -->
+        <!-- 该依赖不会传递给其他依赖该项目的项目 -->
+        <!-- 主要用于在开发时提供额外的功能（如代码提示），但在运行时不是必需的。 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+</project>

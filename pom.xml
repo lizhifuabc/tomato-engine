@@ -30,6 +30,7 @@
         <module>tomato-engine-idempotent</module>
         <module>tomato-engine-thread</module>
         <module>tomato-engine-web</module>
+        <module>tomato-engine-starter</module>
     </modules>
     <scm>
         <connection/>
