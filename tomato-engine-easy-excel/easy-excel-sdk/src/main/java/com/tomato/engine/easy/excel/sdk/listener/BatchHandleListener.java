@@ -4,6 +4,7 @@ import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
 import com.tomato.engine.easy.excel.sdk.util.ExcelUtil;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.function.Consumer;
  * @author lizhifu
  * @since 2024/9/30
  */
+@Slf4j
 public class BatchHandleListener<T> extends AnalysisEventListener<T> {
 
     /**
@@ -118,5 +120,6 @@ public class BatchHandleListener<T> extends AnalysisEventListener<T> {
             batchNo++;
             data.clear();
         }
+        log.debug("所有数据解析完成！");
     }
 }
