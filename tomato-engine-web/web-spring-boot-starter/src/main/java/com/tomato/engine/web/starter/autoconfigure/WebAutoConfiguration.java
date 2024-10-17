@@ -1,8 +1,9 @@
 package com.tomato.engine.web.starter.autoconfigure;
 
 import com.tomato.engine.web.sdk.config.RequestLoggingConfig;
-import com.tomato.engine.web.sdk.config.RequestWrapperFilter;
-import com.tomato.engine.web.sdk.config.ResponseWrapperFilter;
+import com.tomato.engine.web.sdk.interceptor.RequestWrapperFilter;
+import com.tomato.engine.web.sdk.interceptor.ResponseWrapperFilter;
+import com.tomato.engine.web.sdk.interceptor.XssHttpServletFilter;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -32,5 +33,10 @@ public class WebAutoConfiguration {
     @Bean
     ResponseWrapperFilter responseWrapperFilter() {
         return new ResponseWrapperFilter();
+    }
+
+    @Bean
+    XssHttpServletFilter xssHttpServletFilter() {
+        return new XssHttpServletFilter();
     }
 }

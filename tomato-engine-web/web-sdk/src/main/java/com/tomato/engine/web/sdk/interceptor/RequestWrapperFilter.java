@@ -1,4 +1,4 @@
-package com.tomato.engine.web.sdk.config;
+package com.tomato.engine.web.sdk.interceptor;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
