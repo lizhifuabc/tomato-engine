@@ -3,6 +3,10 @@
 
 ## 工作日志
 
+ [tomato-engine-mybatis](tomato-engine-mybatis) 
+
+- TODO sql 解析
+
  [tomato-engine-starter](tomato-engine-starter) 
 
 - spring boot starter 基础依赖
@@ -105,3 +109,7 @@ Mac 搜索 Raycast：https://www.raycast.com/
 本项目参考代码如下：
 
 > https://github.com/pig-mesh/idempotent-spring-boot-starter/tree/features/springboot3
+>
+> https://github.com/jd-opensource/sql-analysis
+>
+> https://github.com/zzusp/slow-sql-monitor

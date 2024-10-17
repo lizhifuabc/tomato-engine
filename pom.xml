@@ -31,6 +31,7 @@
         <module>tomato-engine-thread</module>
         <module>tomato-engine-web</module>
         <module>tomato-engine-starter</module>
+        <module>tomato-engine-mybatis</module>
     </modules>
     <scm>
         <connection/>
@@ -54,6 +55,9 @@
 
         <!-- redisson https://redisson.org/docs/integration-with-spring/ -->
         <redisson.version>3.37.0</redisson.version>
+
+        <!-- mybatis https://github.com/mybatis/spring-boot-starter -->
+        <mybatis.starter.version>3.0.3</mybatis.starter.version>
     </properties>
 
     <dependencyManagement>
@@ -72,6 +76,12 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
                 <version>${easy-excel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

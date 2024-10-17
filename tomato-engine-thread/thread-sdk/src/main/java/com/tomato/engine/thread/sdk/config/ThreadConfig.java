@@ -24,7 +24,8 @@ public class ThreadConfig implements DisposableBean {
     private final ExecutorService executorService;
 
     public ThreadConfig() {
-        // 创建虚拟线程池
+        // 由于虚拟线程的特性，能调的参数可能只有平台线程的数量这一个参数，
+        // 但是其默认的平台线程的数量已经是最佳值了。用户只需在配置文件中声明此executor就行了，不配置其他参数则为虚拟线程的默认参数
         this.executorService = Executors.newVirtualThreadPerTaskExecutor();
     }
 
