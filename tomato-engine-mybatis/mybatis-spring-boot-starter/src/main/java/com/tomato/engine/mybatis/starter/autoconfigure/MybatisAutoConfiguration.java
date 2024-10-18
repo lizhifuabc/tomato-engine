@@ -2,6 +2,7 @@ package com.tomato.engine.mybatis.starter.autoconfigure;
 
 import com.tomato.engine.mybatis.sdk.interceptor.SqlAnalysisInterceptor;
 import com.tomato.engine.mybatis.sdk.properties.SqlAnalysisProperties;
+import com.tomato.engine.mybatis.sdk.util.SpringContextUtil;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -29,5 +30,11 @@ public class MybatisAutoConfiguration {
     SqlAnalysisInterceptor sqlAnalysisInterceptor(SqlAnalysisProperties sqlAnalysisProperties) {
         log.info("mybatis sql 分析拦截器");
         return new SqlAnalysisInterceptor(sqlAnalysisProperties);
+    }
+
+    @Bean
+    SpringContextUtil springContextUtil() {
+        log.info("mybatis spring 上下文工具");
+        return new SpringContextUtil();
     }
 }
