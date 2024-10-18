@@ -4,6 +4,10 @@ import com.tomato.engine.mybatis.sdk.explain.SqlExplain;
 import com.tomato.engine.mybatis.sdk.explain.SqlExplainResult;
 import com.tomato.engine.mybatis.sdk.extract.SqlExtract;
 import com.tomato.engine.mybatis.sdk.extract.SqlExtractResult;
+import com.tomato.engine.mybatis.sdk.properties.SqlAnalysisProperties;
+import com.tomato.engine.mybatis.sdk.replace.SqlReplace;
+import com.tomato.engine.mybatis.sdk.replace.SqlReplaceService;
+import com.tomato.engine.mybatis.sdk.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.executor.statement.StatementHandler;
@@ -11,6 +15,7 @@ import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.util.StringUtils;
 
 import java.sql.Connection;
 import java.util.List;
@@ -37,6 +42,13 @@ import java.util.Properties;
 )})
 @Slf4j
 public class SqlAnalysisInterceptor implements Interceptor {
+
+    private final SqlAnalysisProperties sqlAnalysisProperties;
+
+    public SqlAnalysisInterceptor(SqlAnalysisProperties sqlAnalysisProperties) {
+        this.sqlAnalysisProperties = sqlAnalysisProperties;
+    }
+
     /**
      * 拦截方法
      *
@@ -50,9 +62,18 @@ public class SqlAnalysisInterceptor implements Interceptor {
             // 获取第一个参数
             Object firstArg = invocation.getArgs()[0];
             // sql替换
-            if (firstArg instanceof MappedStatement mappedStatement) {
-                // 根据 id 进行 sql替换 TODO
+            if (firstArg instanceof MappedStatement mappedStatement && sqlAnalysisProperties.getReplaceSwitch()) {
+                // 根据 id 进行 sql替换
                 String id = mappedStatement.getId();
+                try {
+                    SqlReplaceService bean = SpringContextUtil.getBean(SqlReplaceService.class);
+                    String replaceSql = bean.replace(id);
+                    if (StringUtils.hasLength(replaceSql)) {
+                        SqlReplace.replace(invocation, replaceSql);
+                    }
+                }catch (Exception e){
+                    log.error("sql 分析拦截器 替换 sql 异常",e);
+                }
             }
             // sql 分析
             if(firstArg instanceof Connection){

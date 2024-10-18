@@ -13,11 +13,17 @@ import java.util.List;
  * @since 2024/10/18
  */
 @Data
+@ConfigurationProperties(prefix = "tomato.mybatis.sql.analysis")
 public class SqlAnalysisProperties {
     /**
      * 分析开关，默认关闭
      */
     private Boolean analysisSwitch = false;
+
+    /**
+     * sql替换开关，默认关闭
+     */
+    private Boolean replaceSwitch = false;
 
     /**
      * 一个id 只检查一次，默认开启

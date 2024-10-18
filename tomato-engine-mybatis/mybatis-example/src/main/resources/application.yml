@@ -7,3 +7,10 @@ spring:
 logging:
   level:
     root: debug
+
+tomato:
+  mybatis:
+    sql:
+      analysis:
+        analysis-switch: true
+        replace-switch: true

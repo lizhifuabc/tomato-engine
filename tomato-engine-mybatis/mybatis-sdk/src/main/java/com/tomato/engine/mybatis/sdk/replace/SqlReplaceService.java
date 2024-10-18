@@ -7,11 +7,11 @@ package com.tomato.engine.mybatis.sdk.replace;
  * @since 2024/10/18
  */
 public interface SqlReplaceService {
+
     /**
-     * 替换 sql
-     *
-     * @param sql sql
-     * @return 替换后的 sql
+     * 获取替换sql
+     * @param sqlId sqlId
+     * @return 替换后的sql
      */
-    String replace(String sql);
+    String replace(String sqlId);
 }
