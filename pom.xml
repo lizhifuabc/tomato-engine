@@ -48,7 +48,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- hutool https://hutool.cn/ -->
-        <hutool.version>6.0.0-M16</hutool.version>
+        <hutool.version>6.0.0-M17</hutool.version>
 
         <!-- easy-excel https://easyexcel.opensource.alibaba.com/ -->
         <easy-excel.version>4.0.3</easy-excel.version>

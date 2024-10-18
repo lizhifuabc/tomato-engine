@@ -4,9 +4,11 @@ import com.tomato.engine.web.sdk.config.RequestLoggingConfig;
 import com.tomato.engine.web.sdk.interceptor.RequestWrapperFilter;
 import com.tomato.engine.web.sdk.interceptor.ResponseWrapperFilter;
 import com.tomato.engine.web.sdk.interceptor.XssHttpServletFilter;
+import com.tomato.engine.web.sdk.properties.CryptoProperties;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
@@ -19,6 +21,7 @@ import org.springframework.context.annotation.Import;
 @AutoConfiguration
 @Slf4j
 @Import(RequestLoggingConfig.class)
+@EnableConfigurationProperties({CryptoProperties.class})
 public class WebAutoConfiguration {
     @PostConstruct
     public void init() {
