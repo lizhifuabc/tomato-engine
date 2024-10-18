@@ -24,7 +24,6 @@
     <modules>
         <module>tomato-engine-jackson</module>
         <module>tomato-engine-easy-excel</module>
-        <module>tomato-engine-easy-excel</module>
         <module>tomato-engine-rbac</module>
         <module>tomato-engine-login</module>
         <module>tomato-engine-idempotent</module>
@@ -58,10 +57,21 @@
 
         <!-- mybatis https://github.com/mybatis/spring-boot-starter -->
         <mybatis.starter.version>3.0.3</mybatis.starter.version>
+        <!-- mybatis-mp https://mybatis-mp.cn/ -->
+        <mybatis.mp.starter.version>1.6.9-spring-boot3</mybatis.mp.starter.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>cn.mybatis-mp</groupId>
+                <artifactId>mybatis-mp-spring-boot-parent</artifactId>
+                <version>${mybatis.mp.starter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.dromara.hutool</groupId>
                 <artifactId>hutool-bom</artifactId>
@@ -115,14 +125,5 @@
         </repository>
 
     </repositories>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

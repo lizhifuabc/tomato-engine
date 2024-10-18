@@ -10,11 +10,12 @@
     </parent>
 
     <artifactId>mybatis-sdk</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <groupId>cn.mybatis-mp</groupId>
+            <artifactId>mybatis-mp-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

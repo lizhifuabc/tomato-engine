@@ -11,5 +11,12 @@
 
     <artifactId>mybatis-spring-boot-starter</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.tomato</groupId>
+            <artifactId>mybatis-sdk</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

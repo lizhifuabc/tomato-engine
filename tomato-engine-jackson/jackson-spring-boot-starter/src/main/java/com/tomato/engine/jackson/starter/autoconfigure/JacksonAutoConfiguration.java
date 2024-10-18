@@ -1,6 +1,5 @@
 package com.tomato.engine.jackson.starter.autoconfigure;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tomato.engine.jackson.sdk.customizer.Jackson2XssObjectMapperBuilderCustomizer;
 import com.tomato.engine.jackson.sdk.datamasking.DataMaskingService;
 import com.tomato.engine.jackson.sdk.datamasking.impl.DefaultDataMaskingServiceImpl;
