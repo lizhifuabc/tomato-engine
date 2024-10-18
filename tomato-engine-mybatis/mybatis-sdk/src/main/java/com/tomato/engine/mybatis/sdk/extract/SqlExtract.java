@@ -47,11 +47,11 @@ public class SqlExtract {
         //提取 PreparedStatementHandler ，用于提取 MappedStatement
         MetaObject delegateMetaObject = MetaObjectUtil.forObject(statementHandler);
         if(delegateMetaObject.getValue("delegate")==null){
-            log.warn("sql 分析 get delegate null error");
+            log.warn("sql 分析拦截器 get delegate null error");
             return null;
         }
         if(!(delegateMetaObject.getValue("delegate") instanceof PreparedStatementHandler preparedStatementHandler)){
-            log.info("sql 分析 get delegate is not PreparedStatementHandler");
+            log.warn("sql 分析拦截器 get delegate is not PreparedStatementHandler");
             return null;
         }
         //提取 MappedStatement，用于组装完成带参数sql
@@ -61,7 +61,7 @@ public class SqlExtract {
         // 获取到节点的id,即sql语句的id
         String sqlId = mappedStatement.getId();
         String sqlType = mappedStatement.getSqlCommandType().name();
-        log.debug("sql 分析 sqlId ={},sqlType={} " ,sqlId,sqlType);
+        log.debug("sql 分析拦截器 sqlId ={},sqlType={} " ,sqlId,sqlType);
 
         //判断是否需要分析
         if(!needAnalysis(sqlId,sqlType)){
@@ -77,7 +77,7 @@ public class SqlExtract {
         Configuration cOnfiguration= mappedStatement.getConfiguration();
         // 获取到最终的sql语句
         String sql = showSql(cOnfiguration, boundSql);
-        log.info("sql 分析 sql ={} " , sql);
+        log.debug("sql 分析拦截器 sql ={} " , sql);
 
         SqlExtractResult result = new SqlExtractResult();
         result.setSqlId(sqlId);

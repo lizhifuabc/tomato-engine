@@ -31,7 +31,7 @@ public class SqlExplain {
 
         // 验证 sourceSql 是否为安全的查询
         if (!isValidSql(sourceSql)) {
-            log.error("sourceSql 不合法或不支持执行 EXPLAIN: {}", sourceSql);
+            log.debug("sql 分析拦截器 sourceSql 不合法或不支持执行 EXPLAIN: {}", sourceSql);
             return sqlExplainResultList;
         }
 
@@ -43,8 +43,9 @@ public class SqlExplain {
                 sqlExplainResultList.add(convert(rs));
             }
         } catch (SQLException e) {
-            log.error("执行 EXPLAIN 异常: {}", sourceSql, e);
+            log.error("sql 分析拦截器 执行 EXPLAIN 异常: {}", sourceSql, e);
         }
+        log.debug("sql 分析拦截器 执行 EXPLAIN 结果: {}", sqlExplainResultList);
         return sqlExplainResultList;
     }
 

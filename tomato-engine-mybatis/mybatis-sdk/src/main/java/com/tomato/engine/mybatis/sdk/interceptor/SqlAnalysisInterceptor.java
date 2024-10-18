@@ -61,12 +61,12 @@ public class SqlAnalysisInterceptor implements Interceptor {
                 //提取待执行的完整sql语句
                 SqlExtractResult sqlExtractResult = SqlExtract.extract(statementHandler);
                 if (sqlExtractResult != null){
-                    log.info("sql 分析拦截器 待执行sql:{}",sqlExtractResult.getSourceSql());
+                    log.debug("sql 分析拦截器 待执行sql：{}",sqlExtractResult.getSourceSql());
                     List<SqlExplainResult> explain = SqlExplain.explain(sqlExtractResult.getSourceSql(), connection);
                 }
             }
         }catch (Exception e){
-            log.error("sql 分析拦截器异常",e);
+            log.error("sql 分析拦截器 异常",e);
         }
         // 继续执行，即执行原方法
         return invocation.proceed();
