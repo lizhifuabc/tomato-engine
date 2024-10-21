@@ -16,9 +16,16 @@ public class LongJsonSerializer extends JsonSerializer<Long> {
 
     @Override
     public void serialize(Long value, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-        String text = (value == null ? null : String.valueOf(value));
-        if (text != null) {
-            jsonGenerator.writeString(text);
+        if (null == value) {
+            jsonGenerator.writeNull();
+            return;
+        }
+        // js中最大安全整数16位 Number.MAX_SAFE_INTEGER
+        String longStr = String.valueOf(value);
+        if (longStr.length() > 16) {
+            jsonGenerator.writeString(longStr);
+        } else {
+            jsonGenerator.writeNumber(value);
         }
     }
 }
