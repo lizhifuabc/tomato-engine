@@ -15,6 +15,7 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
  * @author lizhifu
  * @since 2024/10/17
  */
+@Deprecated
 public class Jackson2XssObjectMapperBuilderCustomizer implements Jackson2ObjectMapperBuilderCustomizer, Ordered {
 
     @Override
