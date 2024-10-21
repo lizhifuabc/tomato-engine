@@ -1,5 +1,6 @@
 package com.tomato.engine.web.starter.autoconfigure;
 
+import com.tomato.engine.web.sdk.config.CorsFilterConfig;
 import com.tomato.engine.web.sdk.config.RequestLoggingConfig;
 import com.tomato.engine.web.sdk.interceptor.RequestWrapperFilter;
 import com.tomato.engine.web.sdk.interceptor.ResponseWrapperFilter;
@@ -20,7 +21,7 @@ import org.springframework.context.annotation.Import;
  */
 @AutoConfiguration
 @Slf4j
-@Import(RequestLoggingConfig.class)
+@Import({RequestLoggingConfig.class, CorsFilterConfig.class})
 @EnableConfigurationProperties({CryptoProperties.class})
 public class WebAutoConfiguration {
     @PostConstruct
