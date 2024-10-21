@@ -2,6 +2,7 @@ package com.tomato.engine.mybatis.sdk.interceptor;
 
 import com.tomato.engine.mybatis.sdk.explain.SqlExplain;
 import com.tomato.engine.mybatis.sdk.explain.SqlExplainResult;
+import com.tomato.engine.mybatis.sdk.explain.SqlExplainRule;
 import com.tomato.engine.mybatis.sdk.extract.SqlExtract;
 import com.tomato.engine.mybatis.sdk.extract.SqlExtractResult;
 import com.tomato.engine.mybatis.sdk.properties.SqlAnalysisProperties;
@@ -82,8 +83,9 @@ public class SqlAnalysisInterceptor implements Interceptor {
                 //提取待执行的完整sql语句
                 SqlExtractResult sqlExtractResult = SqlExtract.extract(statementHandler);
                 if (sqlExtractResult != null){
-                    log.debug("sql 分析拦截器 待执行sql：{}",sqlExtractResult.getSourceSql());
-                    List<SqlExplainResult> explain = SqlExplain.explain(sqlExtractResult.getSourceSql(), connection);
+                    log.debug("sql 分析拦截器 待执行，sqlId:{},sql：{}",sqlExtractResult.getSqlId(),sqlExtractResult.getSourceSql());
+                    List<SqlExplainResult> explain = SqlExplain.explain(sqlExtractResult, connection);
+                    SqlExplainRule.explainResult(explain);
                 }
             }
         }catch (Exception e){

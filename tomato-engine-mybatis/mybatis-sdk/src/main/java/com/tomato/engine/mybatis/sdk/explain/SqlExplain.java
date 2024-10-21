@@ -1,6 +1,7 @@
 package com.tomato.engine.mybatis.sdk.explain;
 
 import com.tomato.engine.mybatis.sdk.constant.SqlConstant;
+import com.tomato.engine.mybatis.sdk.extract.SqlExtractResult;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;
@@ -21,14 +22,14 @@ public class SqlExplain {
     /**
      * 执行SQL语句的EXPLAIN操作，返回SQL执行计划的结果集
      *
-     * @param sourceSql 需要执行EXPLAIN的原始SQL语句
+     * @param sqlExtractResult sql提取结果，包含需要执行EXPLAIN的原始SQL语句
      * @param connection 数据库连接对象
      * @return 包含SQL执行计划结果集的列表
      */
-    public static List<SqlExplainResult> explain(String sourceSql, Connection connection) {
+    public static List<SqlExplainResult> explain(SqlExtractResult sqlExtractResult, Connection connection) {
 
         List<SqlExplainResult> sqlExplainResultList = new ArrayList<>();
-
+        String sourceSql = sqlExtractResult.getSourceSql();
         // 验证 sourceSql 是否为安全的查询
         if (!isValidSql(sourceSql)) {
             log.debug("sql 分析拦截器 sourceSql 不合法或不支持执行 EXPLAIN: {}", sourceSql);
@@ -40,7 +41,10 @@ public class SqlExplain {
         try (PreparedStatement preparedStatement = connection.prepareStatement(explainSql);
              ResultSet rs = preparedStatement.executeQuery()) {
             while (rs.next()) {
-                sqlExplainResultList.add(convert(rs));
+                SqlExplainResult sqlExplainResult = new SqlExplainResult();
+                sqlExplainResult.setSqlExtractResult(sqlExtractResult);
+                convert(sqlExplainResult,rs);
+                sqlExplainResultList.add(sqlExplainResult);
             }
         } catch (SQLException e) {
             log.error("sql 分析拦截器 执行 EXPLAIN 异常: {}", sourceSql, e);
@@ -53,11 +57,10 @@ public class SqlExplain {
      * 将ResultSet对象转换为SqlExplainResult对象
      * ResultSet 不会为 null
      * @param resultSet 从数据库查询结果中获得的ResultSet对象
-     * @return 转换后的SqlExplainResult对象
+     * @param sqlExplainResult 转换后的SqlExplainResult对象
      * @throws SQLException 如果从ResultSet获取数据时发生数据库异常，则抛出SQLException
      */
-    private static SqlExplainResult convert(ResultSet resultSet) throws SQLException {
-        SqlExplainResult sqlExplainResult = new SqlExplainResult();
+    private static void convert(SqlExplainResult sqlExplainResult, ResultSet resultSet) throws SQLException {
         // 从 ResultSet 中获取并设置各字段的值
         sqlExplainResult.setId(resultSet.getLong("id"));
         sqlExplainResult.setSelectType(resultSet.getString("select_type"));
@@ -69,7 +72,6 @@ public class SqlExplain {
         sqlExplainResult.setRef(resultSet.getString("ref"));
         sqlExplainResult.setRows(resultSet.getLong("rows"));
         sqlExplainResult.setExtra(resultSet.getString("Extra"));
-        return sqlExplainResult;
     }
 
     /**

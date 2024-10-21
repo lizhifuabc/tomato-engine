@@ -20,10 +20,12 @@ public class MetaObjectUtil {
     private static final ReflectorFactory DEFAULT_REFLECTOR_FACTORY = new DefaultReflectorFactory();
 
 
+
     /**
-     * MetaObject 对象实例化
-     * @param object
-     * @return
+     * 为指定的对象生成一个MetaObject实例。
+     *
+     * @param object 要生成MetaObject实例的对象
+     * @return 返回生成的MetaObject实例
      */
     public static MetaObject forObject(Object object) {
         return MetaObject.forObject(object, DEFAULT_OBJECT_FACTORY, DEFAULT_OBJECT_WRAPPER_FACTORY, DEFAULT_REFLECTOR_FACTORY);

@@ -1,5 +1,6 @@
 package com.tomato.engine.mybatis.sdk.explain;
 
+import com.tomato.engine.mybatis.sdk.extract.SqlExtractResult;
 import lombok.Data;
 
 /**
@@ -39,17 +40,17 @@ public class SqlExplainResult {
     private String type;
 
     /**
-     *查询可能使用到的索引都会在这里列出来,但不一 定被查询实际使用
+     * 查询可能使用到的索引都会在这里列出来,但不一 定被查询实际使用
      */
     private String possibleKeys;
 
     /**
-     *查询真正使用到的索引，select_type为index_merge时，这里可能出现两个以上的索引，其他的select_type这里只会出现一个。如果为NULL，则没有使用索引。
+     * 查询真正使用到的索引，select_type为index_merge时，这里可能出现两个以上的索引，其他的select_type这里只会出现一个。如果为NULL，则没有使用索引。
      */
     private String key;
 
     /**
-     *表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度
+     * 表示索引中使用的字节数，可通过该列计算查询中使用的索引的长度
      */
     private String keyLen;
 
@@ -70,7 +71,17 @@ public class SqlExplainResult {
     private Double filtered;
 
     /**
-     *重点关注：using filesort和using temporary
+     * 重点关注：using filesort和using temporary
      */
     private String extra;
+
+    /**
+     * 结果
+     */
+    private String result;
+
+    /**
+     * sql 提取结果
+     */
+    private SqlExtractResult sqlExtractResult;
 }
