@@ -17,6 +17,7 @@
 - 日志记录
 - 请求包装器、响应包装器
 - Xss 过滤器
+- Spring BeanUtils 简单包装
 - TODO 全局加解密
 
 [tomato-engine-thread](tomato-engine-thread)
