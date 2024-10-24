@@ -87,8 +87,11 @@ public class SqlReplace {
     }
 
 
-
-    private record BoundSqlSqlSource(BoundSql boundSql) implements SqlSource {
+    /**
+     * 内部类，用于包装新的BoundSql对象
+     * @param boundSql 新的BoundSql对象
+     */
+    public record BoundSqlSqlSource(BoundSql boundSql) implements SqlSource {
 
         @Override
             public BoundSql getBoundSql(Object parameterObject) {
