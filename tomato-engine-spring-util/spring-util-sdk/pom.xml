@@ -5,23 +5,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.tomato</groupId>
-        <artifactId>tomato-engine-mybatis</artifactId>
+        <artifactId>tomato-engine-spring-util</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mybatis-sdk</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>spring-util-sdk</artifactId>
 
     <dependencies>
+
+        <!-- 提供了许多 Spring Boot 的核心功能和自动配置支持。 -->
         <dependency>
-            <groupId>cn.mybatis-mp</groupId>
-            <artifactId>mybatis-mp-spring-boot-starter</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.tomato</groupId>
-            <artifactId>spring-util-spring-boot-starter</artifactId>
-            <version>${project.version}</version>
-        </dependency>
     </dependencies>
+
 </project>

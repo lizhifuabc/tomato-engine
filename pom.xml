@@ -31,6 +31,7 @@
         <module>tomato-engine-web</module>
         <module>tomato-engine-starter</module>
         <module>tomato-engine-mybatis</module>
+        <module>tomato-engine-spring-util</module>
     </modules>
     <scm>
         <connection/>

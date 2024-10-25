@@ -1,4 +1,4 @@
-package com.tomato.engine.web.sdk.util;
+package com.tomato.engine.spring.util;
 
 import org.springframework.beans.BeanUtils;
 
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  * @author lizhifu
  * @since 2024/10/24
  */
-public class EngineBeanUtil {
+public class SpringBeanUtil {
     /**
      * 复制bean的属性
      *

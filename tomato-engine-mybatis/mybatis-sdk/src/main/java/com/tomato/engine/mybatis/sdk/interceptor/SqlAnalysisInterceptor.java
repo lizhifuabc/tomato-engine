@@ -8,7 +8,7 @@ import com.tomato.engine.mybatis.sdk.extract.SqlExtractResult;
 import com.tomato.engine.mybatis.sdk.properties.SqlAnalysisProperties;
 import com.tomato.engine.mybatis.sdk.replace.SqlReplace;
 import com.tomato.engine.mybatis.sdk.replace.SqlReplaceService;
-import com.tomato.engine.mybatis.sdk.util.SpringContextUtil;
+import com.tomato.engine.spring.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.executor.statement.StatementHandler;

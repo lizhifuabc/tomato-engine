@@ -3,6 +3,11 @@
 
 ## 工作日志
 
+[tomato-engine-spring-util](tomato-engine-spring-util)
+
+- spring 上下文工具类
+- spring bean 工具
+
  [tomato-engine-mybatis](tomato-engine-mybatis) 
 
 - sql 分析拦截器

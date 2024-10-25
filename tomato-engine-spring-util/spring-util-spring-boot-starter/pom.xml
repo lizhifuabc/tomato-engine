@@ -5,13 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.tomato</groupId>
-        <artifactId>tomato-engine</artifactId>
+        <artifactId>tomato-engine-spring-util</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>tomato-engine-starter</artifactId>
+    <artifactId>spring-util-spring-boot-starter</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.tomato</groupId>
+            <artifactId>spring-util-sdk</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- 提供了许多 Spring Boot 的核心功能和自动配置支持。 -->
         <dependency>
@@ -43,5 +48,4 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
 </project>

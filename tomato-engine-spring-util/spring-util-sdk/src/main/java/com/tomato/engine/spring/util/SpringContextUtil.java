@@ -1,5 +1,6 @@
-package com.tomato.engine.mybatis.sdk.util;
+package com.tomato.engine.spring.util;
 
+import lombok.Getter;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
@@ -23,30 +24,26 @@ import org.springframework.stereotype.Service;
 @Lazy(false)
 public class SpringContextUtil implements ApplicationContextAware, EnvironmentAware, DisposableBean {
 
+    /**
+     * -- GETTER --
+     *  取得存储在静态变量中的ApplicationContext.
+     */
+    @Getter
     private static ApplicationContext applicationContext = null;
 
+    /**
+     * -- GETTER --
+     *  获取环境
+     *
+     */
+    @Getter
     private static Environment environment = null;
-
-    /**
-     * 取得存储在静态变量中的ApplicationContext.
-     */
-    public static ApplicationContext getApplicationContext() {
-        return applicationContext;
-    }
-
-    /**
-     * 获取环境
-     * @return {@link Environment }
-     */
-    public static Environment getEnvironment() {
-        return environment;
-    }
 
     /**
      * 实现ApplicationContextAware接口, 注入Context到静态变量中.
      */
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) {
+    public void setApplicationContext(@NonNull ApplicationContext applicationContext) {
         SpringContextUtil.applicationContext = applicationContext;
     }
 
@@ -70,7 +67,7 @@ public class SpringContextUtil implements ApplicationContextAware, EnvironmentAw
      */
     public static void clearHolder() {
         if (log.isDebugEnabled()) {
-            log.debug("清除SpringContextHolder中的ApplicationContext:" + applicationContext);
+            log.debug("清除SpringContextHolder中的ApplicationContext:{}", applicationContext);
         }
         applicationContext = null;
     }
