@@ -1,5 +1,6 @@
 package com.tomato.engine.jackson.starter.autoconfigure;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.tomato.engine.jackson.sdk.datamasking.DataMaskingService;
 import com.tomato.engine.jackson.sdk.datamasking.impl.DefaultDataMaskingServiceImpl;
@@ -8,9 +9,14 @@ import com.tomato.engine.jackson.sdk.serializer.LongJsonSerializer;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
+
+import java.time.ZoneId;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * jackson 自动配置
@@ -18,6 +24,7 @@ import org.springframework.context.annotation.Bean;
  * @author lizhifu
  * @since 2024/9/30
  */
+@ConditionalOnClass(ObjectMapper.class)
 @AutoConfiguration
 @Slf4j
 public class JacksonAutoConfiguration {
@@ -46,9 +53,12 @@ public class JacksonAutoConfiguration {
         simpleModule.addDeserializer(String.class, new XssJsonDeserializer());
         // 使用 jacksonObjectMapperBuilder 来注册模块
         return builder -> {
-            log.info("jackson 自定义配置 Long 序列化");
+            builder.locale(Locale.CHINA);
+            builder.timeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
+            builder.simpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            // 注册 LongJsonSerializer
             builder.serializerByType(Long.class, LongJsonSerializer.INSTANCE);
-            log.info("jackson 自定义配置 xss 配置");
+            // 注册模块
             builder.modules(simpleModule);
         };
     }
