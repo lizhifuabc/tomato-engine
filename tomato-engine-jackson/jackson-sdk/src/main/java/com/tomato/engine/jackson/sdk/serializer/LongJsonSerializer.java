@@ -14,6 +14,9 @@ import java.io.IOException;
  */
 public class LongJsonSerializer extends JsonSerializer<Long> {
 
+    /**
+     * 单例实例，用于全局共享 LongJsonSerializer 对象。
+     */
     public static final LongJsonSerializer INSTANCE = new LongJsonSerializer();
 
 
