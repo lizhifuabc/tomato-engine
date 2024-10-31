@@ -40,6 +40,14 @@ public class DataMaskingSerializer extends JsonSerializer<Object> implements Con
         jsonGenerator.writeObject(dataMaskingService.dataMasking(value, type));
     }
 
+    /**
+     * 根据上下文创建自定义的序列化器
+     *
+     * @param serializerProvider 序列化提供者，提供了一些配置和序列化器的获取方法
+     * @param property           需要序列化的Bean属性
+     * @return 返回自定义的序列化器
+     * @throws JsonMappingException 如果无法找到或创建序列化器，将抛出异常
+     */
     @Override
     public JsonSerializer<?> createContextual(SerializerProvider serializerProvider, BeanProperty property) throws JsonMappingException {
         // 判断beanProperty是不是空
