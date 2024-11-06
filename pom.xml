@@ -60,7 +60,7 @@
         <!-- mybatis https://github.com/mybatis/spring-boot-starter -->
         <mybatis.starter.version>3.0.3</mybatis.starter.version>
         <!-- mybatis-mp https://mybatis-mp.cn/ -->
-        <mybatis.mp.starter.version>1.6.9-spring-boot3</mybatis.mp.starter.version>
+        <mybatis.mp.starter.version>1.7.5-spring-boot3</mybatis.mp.starter.version>
     </properties>
 
     <dependencyManagement>
@@ -112,6 +112,15 @@
             <id>spring-milestones</id>
             <name>Spring Milestones</name>
             <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>huaweicloud</id>
+            <name>huaweicloud</name>
+            <url>https://repo.huaweicloud.com/repository/maven/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
