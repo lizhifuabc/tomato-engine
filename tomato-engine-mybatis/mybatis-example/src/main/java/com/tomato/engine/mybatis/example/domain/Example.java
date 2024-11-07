@@ -22,6 +22,8 @@ public class Example {
 
     private String name;
 
+    private String code;
+
     private Integer age;
 
     private LocalDateTime createTime;
