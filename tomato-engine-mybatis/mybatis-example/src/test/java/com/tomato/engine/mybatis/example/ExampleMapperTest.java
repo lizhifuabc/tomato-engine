@@ -1,6 +1,7 @@
 package com.tomato.engine.mybatis.example;
 
 import cn.mybatis.mp.core.sql.executor.chain.QueryChain;
+import cn.mybatis.mp.core.tenant.TenantContext;
 import com.tomato.engine.mybatis.example.domain.Example;
 import com.tomato.engine.mybatis.example.mapper.ExampleMapper;
 import jakarta.annotation.Resource;
@@ -33,5 +34,16 @@ public class ExampleMapperTest {
                 .limit(10)
                 .list();
         System.out.println(list);
+    }
+
+    @Test
+    public void testSelectAll() {
+        TenantContext.registerTenantGetter(() -> 1);
+        List<Example> list = QueryChain.of(exampleMapper)
+                .list();
+        System.out.println(list);
+
+        TenantContext.registerTenantGetter(() -> 2);
+        System.out.println(TenantContext.getTenantId());
     }
 }

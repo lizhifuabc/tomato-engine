@@ -2,6 +2,7 @@ package com.tomato.engine.mybatis.example.domain;
 
 import cn.mybatis.mp.db.annotations.Table;
 import cn.mybatis.mp.db.annotations.TableId;
+import cn.mybatis.mp.db.annotations.TenantId;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -24,4 +25,7 @@ public class Example {
     private Integer age;
 
     private LocalDateTime createTime;
+
+    @TenantId
+    private Integer tenantId;
 }
