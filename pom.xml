@@ -33,6 +33,7 @@
         <module>tomato-engine-mybatis</module>
         <module>tomato-engine-spring-util</module>
         <module>tomato-engine-util</module>
+        <module>tomato-engine-oshi</module>
     </modules>
     <scm>
         <connection/>
@@ -61,6 +62,9 @@
         <mybatis.starter.version>3.0.3</mybatis.starter.version>
         <!-- mybatis-mp https://mybatis-mp.cn/ -->
         <mybatis.mp.starter.version>1.7.5-spring-boot3</mybatis.mp.starter.version>
+
+        <!-- https://github.com/oshi/oshi -->
+        <oshi.version>6.6.5</oshi.version>
     </properties>
 
     <dependencyManagement>
@@ -81,6 +85,14 @@
                 <type>pom</type>
                 <!-- 注意这里是import -->
                 <scope>import</scope>
+            </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/com.github.oshi/oshi-core -->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
             </dependency>
 
 

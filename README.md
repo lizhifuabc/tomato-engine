@@ -3,6 +3,10 @@
 
 ## 工作日志
 
+ [tomato-engine-oshi](tomato-engine-oshi) 
+
+- 一个基于 JNA 的 （本机） Java 操作系统信息库，旨在提供跨平台实现来检索系统信息，例如版本、内存、CPU、磁盘、电池等。
+
  [tomato-engine-db](tomato-engine-db) 
 
 - MySQL json 示例
